@@ -1,0 +1,35 @@
+baseURL = "https://go-ruby-rack.github.io/"
+title = "go-ruby-rack"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Query & parameters"
+  status = "ready"
+  blurb = "`ParseQuery` / `ParseNestedQuery` expand `foo[bar]` / `foo[]` / `x[][a]` bracket nesting exactly like the gem — array-of-hash vs nested-array subtleties, `ParameterTypeError` / `ParamsTooDeepError` conflicts and all — and `BuildQuery` / `BuildNestedQuery` invert them."
+[[params.phases]]
+  name = "Escaping"
+  status = "ready"
+  blurb = "`Escape` / `Unescape` (`encode/decode_www_form_component`, space ↔ `+`), `EscapePath` / `UnescapePath` (RFC 2396) and `EscapeHTML` / `UnescapeHTML` — byte-identical to MRI down to the unreserved set and upper-case hex."
+[[params.phases]]
+  name = "Status codes & headers"
+  status = "ready"
+  blurb = "The full `HTTPStatusCodes` table, the symbol → code reverse map (deprecated aliases included), `StatusWithNoEntityBody`, and `Headers` — the insertion-ordered, key-down-casing map mirroring `Rack::Headers`."
+[[params.phases]]
+  name = "Request over an Env"
+  status = "ready"
+  blurb = "Method predicates, `PathInfo` / `QueryString` / `GET` / `POST` / `Params` / `Cookies`, `ContentType` / `MediaType`, `Host` / `Port` / `Scheme` / `SSL` / `BaseURL` / `URL` / `Fullpath`, `XHR`, and `IP` with the trusted-proxy filter."
+[[params.phases]]
+  name = "Response & the SPEC tuple"
+  status = "ready"
+  blurb = "`NewResponse(body, status, headers)`, `Write`, `Finish` / `ToA` (the `[status, headers, body]` tuple), `SetStatus`, header get/set, `SetCookie` / `DeleteCookie`, `Redirect`, and the status-class predicates."
+[[params.phases]]
+  name = "Negotiation, cookies & the body seam"
+  status = "ready"
+  blurb = "`QValues`, `BestQMatch`, `GetByteRanges`; `ParseCookiesHeader`, `MakeCookieHeader` / `MakeDeleteCookieHeader`; and the single `Input` seam through which the host supplies the request body — so the package never touches the network."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "Every escaping, query-parse, status, cookie, media-type, byte-range and `Response#finish` case is checked byte-for-byte against the system `ruby` with the `rack` gem; 100% coverage, gofmt + go vet clean, green across 6 arches and 3 OSes."
