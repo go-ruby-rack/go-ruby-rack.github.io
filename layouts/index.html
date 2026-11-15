@@ -41,11 +41,9 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-ruby-rack</h1>
-      <p class="sub">Ruby's Rack — the SPEC value types and the pure-compute core of the <code>rack</code> gem — in pure Go, no cgo.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/docs/">{{ partial "icons/book.html" . }}Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/go-ruby-rack/rack">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
+      <p class="sub">Ruby's Rack — the SPEC value types and the pure-compute core of the <code>rack</code> gem — in {{ if partial "mantra-on.html" . }}Go{{ else }}pure Go{{ end }}, {{ if not (partial "mantra-on.html" $) }}no cgo{{ end }}.</p>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
       <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">pure Go · zero cgo</span>{{ end }}<span class="pill">Ruby <code>Rack</code> 3.x</span><span class="pill">env &amp; SPEC tuple</span><span class="pill">query · nested params</span><span class="pill">escape · cookies</span><span class="pill">status codes · headers</span><span class="pill">Request · Response</span><span class="pill">MRI byte-exact</span><span class="pill">100% coverage</span><span class="pill">6 arches · 3 OSes</span></div>
       <div class="legacy"><div class="badges">
       <a href="/docs/"><img alt="Documentation (MkDocs Material + mike)" src="https://img.shields.io/badge/docs-mkdocs--material-9B1C2E"></a>
